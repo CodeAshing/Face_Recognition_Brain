@@ -1,13 +1,16 @@
 import React from 'react'
 
-const Navigation = () => {
+const Navigation = ({route, setRoute}) => {
     return (           
-            <nav className='' style={{display:'flex', justifyContent:'flex-end'}}>             
-                <p className='f3 link dim white underline dib pa3 pointer'>
-                    Sign out
+        route!=='signin' && (
+            <nav className='' onClick={()=> setRoute('signin')} style={{display:'flex', justifyContent:'flex-end'}}>             
+                <p onClick={()=> setRoute('signin')}
+                 className='f3 link dim white underline dib pa3 pointer'>
+                    {route==='home'? 'Sign out': 'Sign In'}
                 </p>
             </nav>
         
+        )
     )
 }
 

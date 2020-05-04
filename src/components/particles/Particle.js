@@ -7,15 +7,15 @@ const Particle = () => {
             <Particles 
               params={{
             		particles: {
-						// line_linked:{
-						// 	shadow:{
-						// 		enable: true,
-						// 		color:'#3CA9D1',
-						// 		blur:5
-						// 	}
-						// },
+						line_linked:{
+							shadow:{
+								// enable: true,
+								// color:'#3CA9D1',
+								// blur:5
+							}
+						},
 						number:{
-							 value:25,
+							 value:30,
 							 density:{
 								 enable:true,
 								 value_area:100 
