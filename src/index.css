@@ -1,13 +1,7 @@
 body {
   margin: 0;
-  font-family: 'Courier New', Courier, monospace,
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: #03001e;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right,  #ec38bc, #7303c0);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #ec38bc, #7303c0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: 'Courier New', Courier, monospace;
+  background: linear-gradient(to right, #ec38bc, #7303c0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 button{

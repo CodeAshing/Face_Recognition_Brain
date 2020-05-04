@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'tachyons';
+import { GlobalState } from './context/GlobalState';
+
 
 ReactDOM.render(
-  <React.StrictMode>
+  <GlobalState>
     <App />
-  </React.StrictMode>,
+  </GlobalState>,
   document.getElementById('root')
 );
 

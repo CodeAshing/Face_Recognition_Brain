@@ -15,7 +15,7 @@ function App() {
       <Logo/>
       <Ranks/>
       <ImageLinkForm/>
-      {/* <FaceRecognition/> */}
+      <FaceRecognition/>
     </div>
   );
 }
