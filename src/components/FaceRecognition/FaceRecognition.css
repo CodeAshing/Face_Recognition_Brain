@@ -6,3 +6,8 @@
     justify-content: center;
     cursor: pointer;    
 }
+
+.cent{
+    display: flex;
+    justify-content: center;
+}

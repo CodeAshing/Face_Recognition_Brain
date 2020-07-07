@@ -1,6 +1,7 @@
 import Clarifai from 'clarifai'
 
-const Model = (input,setImgUrl,setBox) => {  
+const Model = (input,setImgUrl,setBox,user,setUser) => {  
+  
 
   const app=new Clarifai.App({
     apiKey:'3a879ad121ef4d19b77a4b0d465a18f1'
@@ -22,7 +23,24 @@ const Model = (input,setImgUrl,setBox) => {
   }
     setImgUrl(input)
     app.models.predict(Clarifai.FACE_DETECT_MODEL, input)
-    .then((respone)=> setBox(calculateFaceLocation(respone)))
+    .then((respone)=>{ 
+      if(respone){
+        fetch('http://localhost:3001/image',{
+          method:'put',
+          headers:{'content-Type':'application/json'},
+          body:JSON.stringify({
+            id:user.id
+          })
+        })
+        .then(respone=>respone.json())
+        .then(count=>{
+          setUser({
+            ...user,
+            entries:count}
+          )
+        })
+      }
+      setBox(calculateFaceLocation(respone))})
     .catch(error=> console.log(error))
       
 }

@@ -8,11 +8,13 @@ import Ranks from './components/Rank/Ranks';
 import Particle from './components/particles/Particle';
 import { SignIn } from './components/SignIn/SignIn';
 import Register from './components/Register/Register';
-
+ 
 function App() {
   const [route, setRoute] = useState('signin')
+
+
   return(
-    <div className="cen">
+    <div className="center">
       <Particle/>
       <Navigation route={route} setRoute={setRoute}/>
       {
@@ -26,7 +28,7 @@ function App() {
       :
       (
         route==='signin'
-        ? <SignIn setRoute={setRoute}/> 
+        ? <SignIn route={route} setRoute={setRoute}/> 
         :<Register setRoute={setRoute}/>
       )
       

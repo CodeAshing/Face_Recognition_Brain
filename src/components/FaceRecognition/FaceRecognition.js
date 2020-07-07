@@ -4,10 +4,10 @@ import './FaceRecognition.css'
 
 const FaceRecognition = () => {
     const [,,,imgUrl,,box]=useContext(context)
-    console.log('hi')
+    
     return (
-        <div className='center ma'>
-            <div className='absolute mt2'>
+        <div className='cent ma'>
+            <div className='absolute center mt2'>
                 <img id='inputImage' src={imgUrl} alt='' width='500px' height='auto'/>
                 <div className='bounding-box'                 
                     style={{ 
