@@ -1,12 +1,4 @@
-import Clarifai from 'clarifai'
-
-const Model = (input,setImgUrl,setBox,user,setUser) => {  
-  
-
-  const app=new Clarifai.App({
-    apiKey:'3a879ad121ef4d19b77a4b0d465a18f1'
-  })
-
+const Model = (input,setImgUrl,setBox,user,setUser) => {    
     const calculateFaceLocation=(data)=>{
     const clarifaiFace=data.outputs[0].data.regions[0].region_info.bounding_box
     const image=document.getElementById('inputImage')
@@ -17,15 +9,21 @@ const Model = (input,setImgUrl,setBox,user,setUser) => {
       leftCol: clarifaiFace.left_col *width,
       topRow: clarifaiFace.top_row * height,
       rightCol: width - (clarifaiFace.right_col * width),
-      bottomRow :height - (clarifaiFace.bottom_row *height)
-  
+      bottomRow :height - (clarifaiFace.bottom_row *height)  
     }
   }
     setImgUrl(input)
-    app.models.predict(Clarifai.FACE_DETECT_MODEL, input)
+     fetch('https://obscure-taiga-29549.herokuapp.com/imageUrl',{
+      method:'post',
+      headers:{'content-Type':'application/json'},
+      body:JSON.stringify({
+        input:input
+      })
+    })
+    .then(response=>response.json())
     .then((respone)=>{ 
       if(respone){
-        fetch('http://localhost:3001/image',{
+        fetch('https://obscure-taiga-29549.herokuapp.com/image',{
           method:'put',
           headers:{'content-Type':'application/json'},
           body:JSON.stringify({
@@ -39,6 +37,7 @@ const Model = (input,setImgUrl,setBox,user,setUser) => {
             entries:count}
           )
         })
+        .catch(console.log)
       }
       setBox(calculateFaceLocation(respone))})
     .catch(error=> console.log(error))

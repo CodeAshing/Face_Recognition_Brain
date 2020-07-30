@@ -15,5 +15,4 @@ const Navigation = ({route, setRoute}) => {
         )
     )
 }
-
 export default Navigation

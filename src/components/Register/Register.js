@@ -10,7 +10,7 @@ const Register = ({setRoute}) => {
     const [password, setPassword] = useState('')
 
     const onSubmtChange=()=>{        
-        fetch('http://localhost:3001/register',{
+        fetch('https://obscure-taiga-29549.herokuapp.com/register',{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
@@ -22,13 +22,13 @@ const Register = ({setRoute}) => {
         .then(response=>response.json())
         .then(user=>{
             setUser({
-                id:user[0].id,
-                name: user[0].name,
-                email:user[0].email,
-                entries:user[0].entries,
-                joined:user[0].joined 
+                id:user.id,
+                name: user.name,
+                email:user.email,
+                entries:user.entries,
+                joined:user.joined 
             })
-            if(user){
+            if(user.email){
                 setRoute('home')                
             }
         })

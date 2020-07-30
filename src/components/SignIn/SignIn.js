@@ -3,10 +3,9 @@ import { context } from '../../context/Context'
 export const SignIn = ({route,setRoute}) => {    
     const [SignInEmail, setSignInEmail] = useState('')
     const [SignInPassword, setSignInPassword] = useState('')    
-    const {8:setUser}=useContext(context)
-    const onSubmitChange=()=>{ 
-        
-        fetch('http://localhost:3001/signin',{
+    const {4:setImageUrl,8:setUser}=useContext(context)
+    const onSubmitChange=()=>{        
+        fetch('https://obscure-taiga-29549.herokuapp.com/signin',{
             method:'post',
             headers:{'Content-Type' : 'application/json'},
             body:JSON.stringify({
@@ -15,16 +14,17 @@ export const SignIn = ({route,setRoute}) => {
             })      
         })
         .then(respone=>respone.json())
-        .then(data=>{        
-            if(data.login === 'success'){
+        .then(user=>{        
+            if(user.id){                
                 setUser({
-                    id:data.user.id,
-                    name: data.user.name,
-                    email:data.user.email,
-                    entries:data.user.entries,
-                    joined:data.user.joined 
+                    id:user.id,
+                    name: user.name,
+                    email:user.email,
+                    entries:user.entries,
+                    joined:user.joined 
                 })
-            setRoute('home')  
+            setImageUrl('')
+            setRoute('home')             
             }                
         })    
     }
