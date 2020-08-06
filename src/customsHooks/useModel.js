@@ -13,7 +13,7 @@ const Model = (input,setImgUrl,setBox,user,setUser) => {
     }
   }
     setImgUrl(input)
-     fetch('https://obscure-taiga-29549.herokuapp.com/imageUrl',{
+     fetch('https://afternoon-retreat-89463.herokuapp.com/imageUrl',{
       method:'post',
       headers:{'content-Type':'application/json'},
       body:JSON.stringify({
@@ -23,7 +23,7 @@ const Model = (input,setImgUrl,setBox,user,setUser) => {
     .then(response=>response.json())
     .then((respone)=>{ 
       if(respone){
-        fetch('https://obscure-taiga-29549.herokuapp.com/image',{
+        fetch('https://afternoon-retreat-89463.herokuapp.com/image',{
           method:'put',
           headers:{'content-Type':'application/json'},
           body:JSON.stringify({

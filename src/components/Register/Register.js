@@ -10,7 +10,7 @@ const Register = ({setRoute}) => {
     const [password, setPassword] = useState('')
 
     const onSubmtChange=()=>{        
-        fetch('https://obscure-taiga-29549.herokuapp.com/register',{
+        fetch('https://afternoon-retreat-89463.herokuapp.com/register',{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({

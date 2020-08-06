@@ -11,14 +11,14 @@ const Particle = () => {
 							shadow:{
 								// enable: true,
 								// color:'#3CA9D1',
-								// blur:5
+								// blur:.5
 							}
 						},
 						number:{
 							 value:30,
 							 density:{
 								 enable:true,
-								 value_area:100 
+								 value_area:200
 							 }
 						},
 						size: {
